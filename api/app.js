@@ -4,6 +4,9 @@
 const express = require('express');
 const morgan = require('morgan');
 
+//require cors
+const cors = require('cors');
+
 // variable to enable global error logging
 const enableGlobalErrorLogging = process.env.ENABLE_GLOBAL_ERROR_LOGGING === 'true';
 
@@ -18,6 +21,9 @@ const routes = require('./routes');
 
 // setup morgan which gives us http request logging
 app.use(morgan('dev'));
+
+// setup cors 
+app.use(cors());
 
 //Ensuring the database is connected successfully
 (async () => {
